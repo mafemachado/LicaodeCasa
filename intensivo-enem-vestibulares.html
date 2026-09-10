@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intensivo VESTIBULARES + ENEM 2026 — Espaço Lição de Casa</title>
+  <meta name="description" content="Preparação completa até a reta final para o ENEM e Vestibulares. Turmas Online e Presenciais com acompanhamento de todas as matérias e redação.">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Intensivo VESTIBULARES + ENEM 2026 — Espaço Lição de Casa">
+  <meta property="og:description" content="Preparação completa até a reta final: todas as matérias, do conteúdo-base à revisão final. Turmas Presencial e Online.">
+  <meta property="og:image" content="assets/hero_collage_1.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilos específicos da página Intensivo ENEM & Vestibulares */
+    .enem-hero {
+      background-color: var(--teal-700);
+      color: var(--white);
+      padding-top: calc(80px + var(--space-16));
+      padding-bottom: var(--space-24);
+      position: relative;
+    }
+    .enem-hero__badge {
+      display: inline-block;
+      background-color: var(--orange-500);
+      color: var(--white);
+      font: 700 12px/1 var(--font-label);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-4);
+    }
+    .enem-hero__title {
+      font: 700 48px/1.1 var(--font-display);
+      margin-bottom: var(--space-4);
+    }
+    .enem-hero__subtitle {
+      font-size: 18px;
+      opacity: 0.95;
+      max-width: 680px;
+      line-height: 1.6;
+      margin-bottom: var(--space-8);
+    }
+
+    .pricing-table-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-8);
+      margin-top: var(--space-8);
+    }
+    .pricing-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--teal-100);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(3, 53, 58, 0.06);
+      display: flex;
+      flex-direction: column;
+      transition: transform 300ms var(--ease-out-expo), box-shadow 300ms ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(3, 53, 58, 0.12);
+    }
+    .pricing-card--presencial {
+      border-color: var(--orange-500);
+    }
+    .pricing-card__header {
+      padding: var(--space-6);
+      color: var(--white);
+      text-align: center;
+      position: relative;
+    }
+    .pricing-card__header--online {
+      background-color: var(--teal-600);
+    }
+    .pricing-card__header--presencial {
+      background-color: var(--orange-500);
+    }
+    .pricing-card__header h3 {
+      font: 700 22px var(--font-body);
+      margin-bottom: 4px;
+    }
+    .pricing-card__header span {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.9;
+    }
+    .pricing-card__body {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+    .pricing-card__price-box {
+      background: var(--teal-50);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    .pricing-card__price-val {
+      font: 800 38px/1 var(--font-body);
+      color: var(--teal-800);
+      margin-bottom: 4px;
+    }
+    .pricing-card--presencial .pricing-card__price-val {
+      color: var(--orange-600);
+    }
+    .pricing-card__price-installment {
+      font-size: 14px;
+      color: var(--ink-500);
+      font-weight: 500;
+    }
+    .pricing-features {
+      list-style: none;
+      margin-bottom: var(--space-8);
+      flex-grow: 1;
+    }
+    .pricing-features li {
+      font-size: 15px;
+      color: var(--ink-700);
+      margin-bottom: var(--space-3);
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .pricing-features li span {
+      color: var(--teal-600);
+      font-weight: 700;
+    }
+    .pricing-card__btn {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .info-banner {
+      background: #FFFDF9;
+      border: 1.5px solid var(--orange-300);
+      border-radius: var(--radius-md);
+      padding: var(--space-6);
+      margin-top: var(--space-8);
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+    .info-banner__icon {
+      font-size: 32px;
+      flex-shrink: 0;
+    }
+    .info-banner__text h4 {
+      font: 600 18px var(--font-body);
+      color: var(--ink-900);
+      margin-bottom: 2px;
+    }
+    .info-banner__text p {
+      font-size: 14px;
+      color: var(--ink-500);
+    }
+
+    @media (max-width: 768px) {
+      .pricing-table-container {
+        grid-template-columns: 1fr;
+      }
+      .enem-hero__title {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+     HEADER / NAVEGAÇÃO
+     ========================================================================== -->
+  <header class="header is-scrolled" id="navbar">
+    <div class="header__container">
+      <a href="index.html" class="header__logo">
+        <img src="assets/logo.svg" alt="Logo Espaço Lição de Casa" class="header__logo-img">
+        <span class="header__logo-text">Lição de Casa</span>
+      </a>
+
+      <nav class="header__nav" id="nav-menu">
+        <ul class="header__nav-list">
+          <li><a href="index.html#inicio" class="nav-link">← Página Inicial</a></li>
+          <li><a href="#sobre" class="nav-link">Sobre o Curso</a></li>
+          <li><a href="#precos" class="nav-link">Planos & Investimento</a></li>
+          <li><a href="#estrutura" class="nav-link">Localização</a></li>
+        </ul>
+        <div class="header__cta-mobile">
+          <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20Intensivo%20ENEM%20e%20Vestibulares." target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Falar no WhatsApp
+          </a>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20informações%20sobre%20o%20Intensivo%20ENEM%20e%20Vestibulares." target="_blank" rel="noopener noreferrer" class="btn-primary header__cta">
+          Falar no WhatsApp
+        </a>
+        <button class="header__toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO INTENSIVO -->
+    <section class="enem-hero" id="inicio">
+      <div class="container">
+        <span class="enem-hero__badge">PREPARAÇÃO COMPLETA ATÉ A RETA FINAL</span>
+        <h1 class="enem-hero__title">INTENSIVO VESTIBULARES + ENEM</h1>
+        <p class="enem-hero__subtitle">
+          Todas as matérias do conteúdo-base à revisão final. Escolha entre o formato 💻 <strong>Online</strong> ou 👥 <strong>Presencial</strong> e chegue nas provas com máxima segurança e confiança.
+        </p>
+        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+          <a href="#precos" class="btn-primary">Ver Turmas e Valores</a>
+          <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20garantir%20minha%20vaga%20no%20Intensivo%20ENEM%20e%20Vestibulares." target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            Garantir Vaga no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE O CURSO -->
+    <section class="sobre reveal" id="sobre">
+      <div class="container">
+        <div class="servicos__header" style="margin-bottom: var(--space-12);">
+          <span class="section-eyebrow">Foco em Aprovação</span>
+          <h2 class="section-title">O que o Intensivo oferece para o seu futuro</h2>
+          <p style="color: var(--ink-500); font-size: 17px;">Treinamento estratégico direcionado para o ENEM e os principais vestibulinhos e vestibulares da região.</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: var(--space-6);">
+          <div class="card" style="border: 1.5px solid var(--teal-100);">
+            <div style="font-size: 32px; margin-bottom: 12px;">📚</div>
+            <h3 style="font: 600 20px var(--font-body); color: var(--ink-900); margin-bottom: 8px;">Todas as Matérias</h3>
+            <p style="color: var(--ink-500); font-size: 15px;">Cobertura do conteúdo-base com aprofundamento e revisão completa dos tópicos mais cobrados nas exames.</p>
+          </div>
+
+          <div class="card" style="border: 1.5px solid var(--teal-100);">
+            <div style="font-size: 32px; margin-bottom: 12px;">✍️</div>
+            <h3 style="font: 600 20px var(--font-body); color: var(--ink-900); margin-bottom: 8px;">Oficina de Redação</h3>
+            <p style="color: var(--ink-500); font-size: 15px;">Desenvolvimento de técnicas de escrita, estrutura dissertativa e correção detalhada nos modelos oficiais.</p>
+          </div>
+
+          <div class="card" style="border: 1.5px solid var(--teal-100);">
+            <div style="font-size: 32px; margin-bottom: 12px;">💬</div>
+            <h3 style="font: 600 20px var(--font-body); color: var(--ink-900); margin-bottom: 8px;">Grupo de WhatsApp Oficial</h3>
+            <p style="color: var(--ink-500); font-size: 15px;">Todos os alunos matriculados recebem os links das aulas ao vivo, materiais de apoio e suporte pedagógico direto no grupo.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TABELA DE PREÇOS E TURMAS -->
+    <section class="precos reveal" id="precos" style="background: var(--teal-50); padding-top: var(--space-16); padding-bottom: var(--space-24);">
+      <div class="container">
+        <div class="servicos__header text-center" style="margin-bottom: var(--space-12);">
+          <span class="section-eyebrow">Turmas & Investimento</span>
+          <h2 class="section-title">Escolha a Turma Ideal para Você</h2>
+          <p style="color: var(--ink-500); font-size: 17px;">Turmas com vagas limitadas. Aulas ativas até dezembro!</p>
+        </div>
+
+        <div class="pricing-table-container">
+          <!-- Turma Online -->
+          <div class="pricing-card">
+            <div class="pricing-card__header pricing-card__header--online">
+              <h3>💻 TURMA ONLINE</h3>
+              <span>Aulas Ao Vivo de Segunda a Quinta</span>
+            </div>
+            <div class="pricing-card__body">
+              <div class="pricing-card__price-box">
+                <div class="pricing-card__price-val">R$ 699,00 <span style="font-size: 16px; font-weight: 500; color: var(--ink-500);">à vista</span></div>
+                <div class="pricing-card__price-installment">ou parcelado em <strong>4x de R$ 189,00</strong></div>
+              </div>
+
+              <ul class="pricing-features">
+                <li><span>✓</span> <strong>Horário:</strong> Segunda a quinta, das 19h30 às 21h30</li>
+                <li><span>✓</span> Aulas ao vivo com todos os professores da equipe</li>
+                <li><span>✓</span> Grupo de WhatsApp dos matriculados com links das aulas</li>
+                <li><span>✓</span> Resolução prática de exercícios e revisões de exames anteriores</li>
+                <li><span>✓</span> Material didático em formato digital incluído</li>
+              </ul>
+
+              <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20me%20matricular%20na%20Turma%20Online%20do%20Intensivo%20ENEM%20e%20Vestibulares." target="_blank" rel="noopener noreferrer" class="btn-primary pricing-card__btn">
+                Garantir Vaga Turma Online
+              </a>
+            </div>
+          </div>
+
+          <!-- Turma Presencial -->
+          <div class="pricing-card pricing-card--presencial">
+            <div class="pricing-card__header pricing-card__header--presencial">
+              <h3>👥 TURMA PRESENCIAL</h3>
+              <span>Atendimento na Unidade + Turma Online Incluída</span>
+            </div>
+            <div class="pricing-card__body">
+              <div class="pricing-card__price-box" style="background: #FFFDF9; border: 1px solid var(--orange-200);">
+                <div class="pricing-card__price-val" style="color: var(--orange-600);">R$ 979,00 <span style="font-size: 16px; font-weight: 500; color: var(--ink-500);">à vista</span></div>
+                <div class="pricing-card__price-installment">ou parcelado em <strong>4x de R$ 279,00</strong></div>
+              </div>
+
+              <ul class="pricing-features">
+                <li><span>✓</span> <strong>Matemática Presencial:</strong> Quintas-feiras, das 14h30 às 16h30</li>
+                <li><span>✓</span> <strong>Redação Presencial:</strong> Sextas-feiras, das 14h30 às 16h30</li>
+                <li><span>✓</span> 🌟 <strong>BÔNUS EXCLUSIVO:</strong> Acesso à Turma Online de Segunda a Quinta incluído!</li>
+                <li><span>✓</span> Atendimento presencial e suporte direto na Sede Vila Jardini</li>
+                <li><span>✓</span> Grupo de WhatsApp oficial com acompanhamento contínuo</li>
+              </ul>
+
+              <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20me%20matricular%20na%20Turma%20Presencial%20do%20Intensivo%20ENEM%20e%20Vestibulares." target="_blank" rel="noopener noreferrer" class="btn-primary pricing-card__btn" style="background-color: var(--orange-500);">
+                Garantir Vaga Turma Presencial
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-banner">
+          <div class="info-banner__icon">📲</div>
+          <div class="info-banner__text">
+            <h4>Inclusão no Grupo de WhatsApp das Aulas</h4>
+            <p>Todos os matriculados em ambas as turmas são adicionados no grupo de suporte oficial no WhatsApp para receber avisos, tirada de dúvidas e links de acesso.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO / UNIDADE -->
+    <section class="unidades reveal" id="estrutura">
+      <div class="container">
+        <div class="unidades__header">
+          <span class="section-eyebrow">Localização</span>
+          <h2 class="section-title">Onde Fica a Nossa Escola</h2>
+        </div>
+
+        <div class="card card--unidade card--unidade-com-foto" style="max-width: 720px; margin: 0 auto;">
+          <div class="card__img-container">
+            <img src="assets/fachada.jpg" alt="Fachada do Espaço Lição de Casa" class="card__unidade-img">
+          </div>
+          <div class="card__unidade-body">
+            <div class="card__unidade-header">
+              <span class="card__unidade-flag">📍</span>
+              <h3 class="card__unidade-title">Espaço Lição de Casa — Sorocaba</h3>
+            </div>
+            <p class="card__unidade-desc">Ambiente preparado e acolhedor para aulas presenciais, plantões de dúvidas e acompanhamento escolar.</p>
+            <div class="card__unidade-detalhes">
+              <p>
+                <span class="detail-icon">📍</span>
+                <span class="detail-text">Rua Icaraí, 317 - Vila Jardini, Sorocaba - SP</span>
+              </p>
+              <p>
+                <span class="detail-icon">🕒</span>
+                <span class="detail-text">Segunda a Sexta: 08h às 19h | Sábados: 08h às 12h</span>
+              </p>
+              <p>
+                <span class="detail-icon">📞</span>
+                <span class="detail-text">(15) 99627-9639</span>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">
+            <img src="assets/logo.svg" alt="Logo Espaço Lição de Casa">
+            <span>Espaço Lição de Casa</span>
+          </div>
+          <p class="footer__desc">Escola especializada em reforço escolar, preparatórios e apoio pedagógico individualizado em Sorocaba/SP.</p>
+          <div class="footer__socials">
+            <a href="https://wa.me/5515996279639" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Navegação</h4>
+          <ul class="footer__links">
+            <li><a href="index.html#inicio">Início</a></li>
+            <li><a href="index.html#sobre">Sobre a Escola</a></li>
+            <li><a href="index.html#servicos">Cursos & Programas</a></li>
+            <li><a href="index.html#estrutura">Estrutura Física</a></li>
+            <li><a href="index.html#contato">Fale Conosco</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Espaço Lição de Casa. Todos os direitos reservados.</p>
+        <p>Desenvolvido com excelência pedagógica e inovação.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
