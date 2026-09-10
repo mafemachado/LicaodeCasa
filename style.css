@@ -461,6 +461,26 @@ section {
   flex-wrap: wrap;
 }
 
+.hero__online-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+  padding: 8px 18px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  color: var(--teal-50);
+  font: 500 14px/1 var(--font-body);
+  letter-spacing: 0.02em;
+}
+
+.hero__online-tag svg {
+  stroke: var(--orange-300);
+}
+
 .hero__media {
   display: flex;
   align-items: center;
