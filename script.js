@@ -220,4 +220,82 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
+  /* ==========================================================================
+     VIDEO TESTIMONIAL CONTROLS (SPEED, PLAY/PAUSE, VOLUME)
+     ========================================================================== */
+  const testimonialVideo = document.getElementById('testimonial-video');
+  const videoPlayBtn = document.getElementById('video-play-btn');
+  const videoMuteBtn = document.getElementById('video-mute-btn');
+  const videoVolumeSlider = document.getElementById('video-volume-slider');
+  const speedButtons = document.querySelectorAll('.speed-btn');
+
+  if (testimonialVideo) {
+    // Play/Pause toggle
+    if (videoPlayBtn) {
+      const iconPlay = videoPlayBtn.querySelector('.icon-play');
+      const iconPause = videoPlayBtn.querySelector('.icon-pause');
+      const btnLabel = videoPlayBtn.querySelector('.btn-label');
+
+      function updatePlayState() {
+        if (testimonialVideo.paused) {
+          if (iconPlay) iconPlay.style.display = 'block';
+          if (iconPause) iconPause.style.display = 'none';
+          if (btnLabel) btnLabel.textContent = 'Play';
+        } else {
+          if (iconPlay) iconPlay.style.display = 'none';
+          if (iconPause) iconPause.style.display = 'block';
+          if (btnLabel) btnLabel.textContent = 'Pausar';
+        }
+      }
+
+      videoPlayBtn.addEventListener('click', () => {
+        if (testimonialVideo.paused) {
+          testimonialVideo.play();
+        } else {
+          testimonialVideo.pause();
+        }
+      });
+
+      testimonialVideo.addEventListener('play', updatePlayState);
+      testimonialVideo.addEventListener('pause', updatePlayState);
+    }
+
+    // Volume Slider & Mute
+    if (videoVolumeSlider) {
+      videoVolumeSlider.addEventListener('input', (e) => {
+        testimonialVideo.volume = parseFloat(e.target.value);
+        testimonialVideo.muted = (testimonialVideo.volume === 0);
+        updateMuteIcon();
+      });
+    }
+
+    if (videoMuteBtn) {
+      videoMuteBtn.addEventListener('click', () => {
+        testimonialVideo.muted = !testimonialVideo.muted;
+        if (videoVolumeSlider) {
+          videoVolumeSlider.value = testimonialVideo.muted ? 0 : testimonialVideo.volume;
+        }
+        updateMuteIcon();
+      });
+    }
+
+    function updateMuteIcon() {
+      if (!videoMuteBtn) return;
+      const isMuted = testimonialVideo.muted || testimonialVideo.volume === 0;
+      videoMuteBtn.style.opacity = isMuted ? '0.5' : '1';
+    }
+
+    // Playback Speed Selector
+    speedButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const speed = parseFloat(btn.getAttribute('data-speed'));
+        if (!isNaN(speed)) {
+          testimonialVideo.playbackRate = speed;
+          speedButtons.forEach(b => b.classList.remove('is-active'));
+          btn.classList.add('is-active');
+        }
+      });
+    });
+  }
+
 });
