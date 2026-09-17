@@ -58,12 +58,13 @@
       margin-bottom: var(--space-8);
     }
 
-    /* Grid dos Grupos de Estudo */
+    /* Grid dos Grupos de Estudo - Simetria Perfeita */
     .grupos-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-6);
       margin-top: var(--space-8);
+      align-items: stretch;
     }
 
     .grupo-card {
@@ -74,6 +75,7 @@
       box-shadow: 0 4px 20px rgba(3, 53, 58, 0.06);
       display: flex;
       flex-direction: column;
+      height: 100%;
       transition: transform 300ms var(--ease-out-expo), box-shadow 300ms ease;
       position: relative;
     }
@@ -92,6 +94,13 @@
       padding: var(--space-6);
       color: var(--white);
       text-align: center;
+      min-height: 115px;
+      height: 115px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
     }
     .grupo-card__header--ser {
       background-color: var(--orange-500);
@@ -115,27 +124,41 @@
       padding: var(--space-6);
       display: flex;
       flex-direction: column;
-      flex-grow: 1;
+      flex: 1;
     }
 
     .grupo-card__period {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 6px;
       background: var(--teal-50);
       color: var(--teal-800);
       font-size: 13px;
       font-weight: 700;
-      padding: 6px 12px;
+      padding: 6px 14px;
       border-radius: var(--radius-pill);
       margin-bottom: var(--space-4);
       align-self: flex-start;
       border: 1px solid var(--teal-100);
+      width: 100%;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .grupo-card__desc-text {
+      font-size: 14px;
+      color: var(--ink-700);
+      margin-bottom: var(--space-4);
+      line-height: 1.5;
+      min-height: 42px;
+      text-align: center;
     }
 
     .schedule-list {
       list-style: none;
       margin-bottom: var(--space-6);
+      flex: 1;
     }
     .schedule-item {
       background: #FAFDFD;
@@ -143,6 +166,9 @@
       border-radius: var(--radius-sm);
       padding: var(--space-3) var(--space-4);
       margin-bottom: var(--space-3);
+    }
+    .schedule-item:last-child {
+      margin-bottom: 0;
     }
     .schedule-item__materia {
       font-weight: 700;
@@ -164,14 +190,27 @@
       color: var(--orange-600);
     }
 
+    .grupo-card__footer {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
     .grupo-card__price-box {
       background: var(--teal-50);
       border-radius: var(--radius-md);
-      padding: var(--space-5);
+      padding: var(--space-4) var(--space-5);
       text-align: center;
-      margin-top: auto;
-      margin-bottom: var(--space-6);
       border: 1px solid var(--teal-100);
+      height: 145px;
+      min-height: 145px;
+      max-height: 145px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-sizing: border-box;
     }
     .grupo-card--ser .grupo-card__price-box {
       background: #FFFDF9;
@@ -191,20 +230,41 @@
       font-weight: 500;
     }
     .grupo-card__discount {
-      display: inline-block;
-      margin-top: 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 8px;
       font-size: 12px;
       font-weight: 700;
       color: var(--teal-700);
       background: var(--teal-100);
-      padding: 3px 8px;
+      padding: 4px 12px;
       border-radius: var(--radius-pill);
+      white-space: nowrap;
+    }
+    .grupo-card__discount--orange {
+      color: var(--orange-700);
+      background: var(--orange-200);
     }
 
     .grupo-card__btn {
-      width: 100%;
-      text-align: center;
-      justify-content: center;
+      width: 100% !important;
+      height: 52px !important;
+      min-height: 52px !important;
+      max-height: 52px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      text-align: center !important;
+      font: 700 15px/1 var(--font-body) !important;
+      border-radius: var(--radius-pill) !important;
+      box-sizing: border-box !important;
+      padding: 0 var(--space-4) !important;
+      margin: 0 !important;
+      box-shadow: 0 4px 12px rgba(3, 53, 58, 0.15) !important;
+    }
+    .grupo-card__btn--ser {
+      box-shadow: 0 4px 12px rgba(255, 135, 0, 0.2) !important;
     }
 
     .highlights-grid {
@@ -212,6 +272,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: var(--space-6);
       margin-top: var(--space-8);
+      align-items: stretch;
     }
 
     /* Banner para nova escola / solicitação */
@@ -372,17 +433,17 @@
           <!-- Card 1: 9º Ano Véritas -->
           <article class="grupo-card grupo-card--veritas">
             <div class="grupo-card__header grupo-card__header--veritas">
-              <span>Escola Véritas</span>
+              <span>Exclusivo Colégio Véritas</span>
               <h3>9º VÉRITAS</h3>
               <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Grupo de Estudos Lição de Casa</p>
             </div>
             <div class="grupo-card__body">
               <div class="grupo-card__period">
-                <span>🗓️ Setembro a Dezembro</span>
+                <span>📍 Presencial (c/ Transmissão Online)</span>
               </div>
 
-              <p style="font-size: 14px; color: var(--ink-700); margin-bottom: var(--space-4); line-height: 1.5;">
-                Turmas de <strong>4 a 6 alunos</strong> focadas em reforço profundo e fixação de conteúdo.
+              <p class="grupo-card__desc-text">
+                Turmas de <strong>4 a 6 alunos</strong> com mediação de professores e acompanhamento semanal.
               </p>
 
               <ul class="schedule-list">
@@ -391,8 +452,8 @@
                     <span>📐</span> Matemática
                   </div>
                   <div class="schedule-item__horario">
-                    <span>Acompanhamento Semanal</span>
-                    <span class="schedule-item__dia">1,5h semanal</span>
+                    <span class="schedule-item__dia">Acompanhamento Semanal</span>
+                    <span>1,5h semanal</span>
                   </div>
                 </li>
                 <li class="schedule-item">
@@ -400,22 +461,33 @@
                     <span>🧪</span> Ciências
                   </div>
                   <div class="schedule-item__horario">
-                    <span>Acompanhamento Semanal</span>
-                    <span class="schedule-item__dia">1,5h semanal</span>
+                    <span class="schedule-item__dia">Acompanhamento Semanal</span>
+                    <span>1,5h semanal</span>
+                  </div>
+                </li>
+                <li class="schedule-item">
+                  <div class="schedule-item__materia">
+                    <span>📝</span> Simulados & Prática
+                  </div>
+                  <div class="schedule-item__horario">
+                    <span class="schedule-item__dia">Revisão Integrada</span>
+                    <span>Quinzenal</span>
                   </div>
                 </li>
               </ul>
 
-              <div class="grupo-card__price-box">
-                <div class="grupo-card__price-val">R$ 1.560,00</div>
-                <div class="grupo-card__price-sub">em até <strong>5x de R$ 312,00</strong></div>
-                <div style="font-size: 12px; color: var(--ink-500); margin-top: 2px;">(Boleto ou Cartão de Crédito)</div>
-                <span class="grupo-card__discount">🏷️ 10% DE DESCONTO À VISTA</span>
-              </div>
+              <div class="grupo-card__footer">
+                <div class="grupo-card__price-box">
+                  <div class="grupo-card__price-val">R$ 1.560,00</div>
+                  <div class="grupo-card__price-sub">ou em até <strong>5x de R$ 312,00</strong></div>
+                  <div style="font-size: 12px; color: var(--ink-500); margin-top: 2px;">(Boleto ou Cartão de Crédito)</div>
+                  <span class="grupo-card__discount">🏷️ 10% DE DESCONTO À VISTA</span>
+                </div>
 
-              <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20reservar%20uma%20vaga%20no%20Grupo%20de%20Estudos%20do%209º%20Véritas." target="_blank" rel="noopener noreferrer" class="btn-primary grupo-card__btn" style="background-color: var(--teal-600);">
-                Reservar Vaga 9º Véritas
-              </a>
+                <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20reservar%20uma%20vaga%20no%20Grupo%20de%20Estudos%20do%209º%20Véritas." target="_blank" rel="noopener noreferrer" class="btn-primary grupo-card__btn" style="background-color: var(--teal-600);">
+                  Reservar Vaga 9º Véritas
+                </a>
+              </div>
             </div>
           </article>
 
@@ -431,8 +503,8 @@
                 <span>📍 Presencial (c/ Transmissão Online)</span>
               </div>
 
-              <p style="font-size: 14px; color: var(--ink-700); margin-bottom: var(--space-4); line-height: 1.5;">
-                Aulas de <strong>Setembro a Dezembro</strong> com grade horária estruturada por disciplina.
+              <p class="grupo-card__desc-text">
+                Turmas de <strong>4 a 6 alunos</strong> com mediação de professores e acompanhamento semanal.
               </p>
 
               <ul class="schedule-list">
@@ -465,15 +537,18 @@
                 </li>
               </ul>
 
-              <div class="grupo-card__price-box">
-                <div class="grupo-card__price-val">R$ 1.600,00</div>
-                <div class="grupo-card__price-sub">à vista ou até <strong>5x de R$ 350,00</strong></div>
-                <div style="font-size: 12px; color: var(--ink-500); margin-top: 2px;">(Boleto / Cartão)</div>
-              </div>
+              <div class="grupo-card__footer">
+                <div class="grupo-card__price-box">
+                  <div class="grupo-card__price-val">R$ 1.600,00</div>
+                  <div class="grupo-card__price-sub">ou em até <strong>5x de R$ 350,00</strong></div>
+                  <div style="font-size: 12px; color: var(--ink-500); margin-top: 2px;">(Boleto ou Cartão de Crédito)</div>
+                  <span class="grupo-card__discount grupo-card__discount--orange">💳 PARCELAMENTO EM ATÉ 5X</span>
+                </div>
 
-              <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20reservar%20uma%20vaga%20no%20Grupo%20de%20Estudos%20do%201º%20Ano%20SER." target="_blank" rel="noopener noreferrer" class="btn-primary grupo-card__btn" style="background-color: var(--orange-500);">
-                Reservar Vaga 1º SER
-              </a>
+                <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20reservar%20uma%20vaga%20no%20Grupo%20de%20Estudos%20do%201º%20Ano%20SER." target="_blank" rel="noopener noreferrer" class="btn-primary grupo-card__btn grupo-card__btn--ser" style="background-color: var(--orange-500);">
+                  Reservar Vaga 1º SER
+                </a>
+              </div>
             </div>
           </article>
 
@@ -489,8 +564,8 @@
                 <span>📍 Presencial (c/ Transmissão Online)</span>
               </div>
 
-              <p style="font-size: 14px; color: var(--ink-700); margin-bottom: var(--space-4); line-height: 1.5;">
-                Aulas de <strong>Setembro a Dezembro</strong> com grade horária estruturada por disciplina.
+              <p class="grupo-card__desc-text">
+                Turmas de <strong>4 a 6 alunos</strong> com mediação de professores e acompanhamento semanal.
               </p>
 
               <ul class="schedule-list">
@@ -523,15 +598,18 @@
                 </li>
               </ul>
 
-              <div class="grupo-card__price-box">
-                <div class="grupo-card__price-val">R$ 1.600,00</div>
-                <div class="grupo-card__price-sub">à vista ou até <strong>5x de R$ 350,00</strong></div>
-                <div style="font-size: 12px; color: var(--ink-500); margin-top: 2px;">(Boleto / Cartão)</div>
-              </div>
+              <div class="grupo-card__footer">
+                <div class="grupo-card__price-box">
+                  <div class="grupo-card__price-val">R$ 1.600,00</div>
+                  <div class="grupo-card__price-sub">ou em até <strong>5x de R$ 350,00</strong></div>
+                  <div style="font-size: 12px; color: var(--ink-500); margin-top: 2px;">(Boleto ou Cartão de Crédito)</div>
+                  <span class="grupo-card__discount grupo-card__discount--orange">💳 PARCELAMENTO EM ATÉ 5X</span>
+                </div>
 
-              <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20reservar%20uma%20vaga%20no%20Grupo%20de%20Estudos%20do%202º%20Ano%20SER." target="_blank" rel="noopener noreferrer" class="btn-primary grupo-card__btn" style="background-color: var(--orange-500);">
-                Reservar Vaga 2º SER
-              </a>
+                <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20reservar%20uma%20vaga%20no%20Grupo%20de%20Estudos%20do%202º%20Ano%20SER." target="_blank" rel="noopener noreferrer" class="btn-primary grupo-card__btn grupo-card__btn--ser" style="background-color: var(--orange-500);">
+                  Reservar Vaga 2º SER
+                </a>
+              </div>
             </div>
           </article>
 

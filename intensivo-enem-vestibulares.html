@@ -82,6 +82,10 @@
       color: var(--white);
       text-align: center;
       position: relative;
+      min-height: 90px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .pricing-card__header--online {
       background-color: var(--teal-600);
@@ -111,6 +115,10 @@
       padding: var(--space-6);
       text-align: center;
       margin-bottom: var(--space-6);
+      min-height: 105px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .pricing-card__price-val {
       font: 800 38px/1 var(--font-body);
@@ -144,8 +152,16 @@
     }
     .pricing-card__btn {
       width: 100%;
-      text-align: center;
+      height: 50px;
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
       justify-content: center;
+      text-align: center;
+      font: 700 15px/1 var(--font-body);
+      border-radius: var(--radius-pill);
+      box-sizing: border-box;
+      margin-top: auto;
     }
 
     .info-banner {
