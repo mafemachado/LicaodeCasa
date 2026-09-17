@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Grupos de Estudo Orientados (SER & Véritas) — Espaço Lição de Casa</title>
-  <meta name="description" content="Grupos de estudos orientados pela Professora Ilce em turmas reduzidas para alunos do Colégio SER e Colégio Véritas em Sorocaba/SP. Reforço e acompanhamento em Matemática, Física, Ciências e Redação.">
+  <title>Grupos de Estudo Orientados por Escola & Série — Espaço Lição de Casa</title>
+  <meta name="description" content="Grupos de estudo orientados pela Professora Ilce em turmas reduzidas (4 a 6 alunos) para estudantes de Sorocaba/SP. Reforço e acompanhamento direcionado ao currículo e exames de cada colégio.">
   
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Grupos de Estudo Orientados (SER & Véritas) — Espaço Lição de Casa">
-  <meta property="og:description" content="Grupos de estudo em turmas reduzidas de 4 a 6 alunos para 9º Véritas, 1º e 2º Ano SER em Sorocaba. Aulas de Setembro a Dezembro.">
+  <meta property="og:title" content="Grupos de Estudo Orientados por Escola & Série — Espaço Lição de Casa">
+  <meta property="og:description" content="Grupos de estudo em turmas reduzidas com acompanhamento no ritmo da sua escola em Sorocaba. Turmas ativas de Setembro a Dezembro.">
   <meta property="og:image" content="assets/hero_collage_2.png">
 
   <!-- Favicon -->
@@ -214,6 +214,30 @@
       margin-top: var(--space-8);
     }
 
+    /* Banner para nova escola / solicitação */
+    .new-group-banner {
+      background: linear-gradient(135deg, var(--white) 0%, var(--teal-50) 100%);
+      border: 2px dashed var(--teal-300);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8);
+      margin-top: var(--space-12);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-6);
+      box-shadow: 0 4px 16px rgba(3, 53, 58, 0.04);
+    }
+    .new-group-banner__content h3 {
+      font: 600 22px var(--font-body);
+      color: var(--ink-900);
+      margin-bottom: var(--space-2);
+    }
+    .new-group-banner__content p {
+      color: var(--ink-500);
+      font-size: 15px;
+      max-width: 620px;
+    }
+
     @media (max-width: 1024px) {
       .grupos-grid {
         grid-template-columns: 1fr;
@@ -223,6 +247,13 @@
       }
       .highlights-grid {
         grid-template-columns: 1fr;
+      }
+      .new-group-banner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .new-group-banner__content p {
+        max-width: 100%;
       }
     }
 
@@ -253,14 +284,14 @@
           <li><a href="#unidades" class="nav-link">Localização</a></li>
         </ul>
         <div class="header__cta-mobile">
-          <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20Grupos%20de%20Estudo%20(SER%20e%20Véritas)." target="_blank" rel="noopener noreferrer" class="btn-primary">
+          <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20Grupos%20de%20Estudo." target="_blank" rel="noopener noreferrer" class="btn-primary">
             Falar no WhatsApp
           </a>
         </div>
       </nav>
 
       <div class="header__actions">
-        <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20Grupos%20de%20Estudo%20(SER%20e%20Véritas)." target="_blank" rel="noopener noreferrer" class="btn-primary header__cta">
+        <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20Grupos%20de%20Estudo." target="_blank" rel="noopener noreferrer" class="btn-primary header__cta">
           Falar no WhatsApp
         </a>
         <button class="header__toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
@@ -277,14 +308,14 @@
     <section class="grupos-hero" id="inicio">
       <div class="container">
         <span class="grupos-hero__badge">TURMAS REDUZIDAS & ACOMPANHAMENTO DIRECIONADO</span>
-        <h1 class="grupos-hero__title">Grupos de Estudo Orientados — <em>SER</em> & <em>Véritas</em></h1>
+        <h1 class="grupos-hero__title">Grupos de Estudo Orientados <em>por Escola & Série</em></h1>
         <p class="grupos-hero__subtitle">
-          Grupos exclusivos para alunos do <strong>9º Ano Véritas</strong> e do <strong>1º e 2º Anos SER</strong> em Sorocaba/SP. Mesas de estudo com mediação de professores, conteúdos no ritmo da sua escola, simulados em grupo e rotinas de revisão de <strong>Setembro a Dezembro</strong>.
+          Mesas de estudo em turmas reduzidas com mediação de professores, alinhadas exatamente à matriz curricular da escola do seu filho em Sorocaba/SP. Conteúdo no ritmo da sala de aula, simulados em grupo e rotinas de revisão de <strong>Setembro a Dezembro</strong>.
         </p>
         <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
-          <a href="#turmas" class="btn-primary">Ver Grupos e Horários</a>
-          <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20reservar%20uma%20vaga%20nos%20Grupos%20de%20Estudo." target="_blank" rel="noopener noreferrer" class="btn-secondary">
-            Reservar Vaga no WhatsApp
+          <a href="#turmas" class="btn-primary">Ver Grupos Abertos</a>
+          <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20informações%20sobre%20abertura%20de%20Grupos%20de%20Estudo." target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            Falar no WhatsApp
           </a>
         </div>
       </div>
@@ -296,7 +327,7 @@
         <div class="servicos__header" style="margin-bottom: var(--space-8);">
           <span class="section-eyebrow">Aprendizado Dinâmico</span>
           <h2 class="section-title">Por que participar dos Nossos Grupos de Estudo?</h2>
-          <p style="color: var(--ink-500); font-size: 16px;">Estrutura pensada para alunos das escolas de Sorocaba com acompanhamento contínuo da Professora Ilce.</p>
+          <p style="color: var(--ink-500); font-size: 16px;">Estrutura pensada para alunos das escolas de Sorocaba com acompanhamento contínuo da Professora Ilce e equipe pedagógica.</p>
         </div>
 
         <div class="highlights-grid">
@@ -312,8 +343,8 @@
             <div class="card__icon-wrapper">
               <span style="font-size: 24px;">🏫</span>
             </div>
-            <h3 class="card__title">Conteúdo Alinhado à Escola</h3>
-            <p class="card__desc">Material e cronograma customizados exatamente para as exigências, provas e disciplinas dos colégios <strong>SER</strong> e <strong>Véritas</strong> em Sorocaba.</p>
+            <h3 class="card__title">Foco Específico por Escola</h3>
+            <p class="card__desc">Material e cronograma customizados exatamente para as exigências, calendário de provas e disciplinas de cada colégio parceiro em Sorocaba.</p>
           </article>
 
           <article class="card card--val-prop">
@@ -331,9 +362,9 @@
     <section class="servicos reveal" id="turmas" style="background-color: var(--teal-50); padding-top: var(--space-16); padding-bottom: var(--space-24);">
       <div class="container">
         <div class="servicos__header">
-          <span class="section-eyebrow">Aulas de Setembro a Dezembro</span>
-          <h2 class="section-title">Confira as Turmas Disponíveis</h2>
-          <p style="color: var(--ink-500); font-size: 16px;">Vagas limitadas por grupo para garantir máxima eficiência no aprendizado.</p>
+          <span class="section-eyebrow">Turmas Ativas — Setembro a Dezembro</span>
+          <h2 class="section-title">Grupos de Estudo em Andamento</h2>
+          <p style="color: var(--ink-500); font-size: 16px;">Atualmente estamos com turmas abertas para os colégios abaixo. Periodicamente abrimos novas turmas para outras escolas e séries de Sorocaba!</p>
         </div>
 
         <div class="grupos-grid">
@@ -505,6 +536,17 @@
           </article>
 
         </div>
+
+        <!-- BANNER DE SOLICITAÇÃO DE NOVOS GRUPOS -->
+        <div class="new-group-banner">
+          <div class="new-group-banner__content">
+            <h3>🏫 Sua escola ou série não está na lista acima?</h3>
+            <p>Formamos novos grupos de estudo sob demanda para alunos de qualquer escola de Sorocaba! Entre em contato conosco para solicitar a abertura de um grupo exclusivo para a sua turma.</p>
+          </div>
+          <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20solicitar%20a%20abertura%20de%20um%20novo%20Grupo%20de%20Estudos%20para%20minha%20escola." target="_blank" rel="noopener noreferrer" class="btn-primary" style="white-space: nowrap; flex-shrink: 0;">
+            Solicitar Novo Grupo no WhatsApp
+          </a>
+        </div>
       </div>
     </section>
 
@@ -555,7 +597,7 @@
           <h2 class="cta-box__title">Garanta a Vaga do seu Filho no Grupo de Estudos!</h2>
           <p class="cta-box__desc">Devido ao limite reduzido de 4 a 6 alunos por turma, as vagas são preenchidas rapidamente. Fale diretamente com nossa equipe no WhatsApp.</p>
           <div class="cta-box__ctas">
-            <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20garantir%20uma%20vaga%20nos%20Grupos%20de%20Estudo%20(SER%20/%20Véritas)." target="_blank" rel="noopener noreferrer" class="btn-checkout">
+            <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20garantir%20uma%20vaga%20nos%20Grupos%20de%20Estudo." target="_blank" rel="noopener noreferrer" class="btn-checkout">
               <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
                 <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
               </svg>
@@ -595,7 +637,7 @@
             <li><a href="index.html#inicio">Página Inicial</a></li>
             <li><a href="index.html#sobre">Sobre a Escola</a></li>
             <li><a href="index.html#servicos">Cursos & Programas</a></li>
-            <li><a href="#turmas">Grupos de Estudo SER & Véritas</a></li>
+            <li><a href="#turmas">Grupos de Estudo Orientados</a></li>
             <li><a href="index.html#contato">Fale Conosco</a></li>
           </ul>
         </div>
