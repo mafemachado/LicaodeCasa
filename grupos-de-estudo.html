@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupos de Estudo Orientados (SER & Véritas) — Espaço Lição de Casa</title>
+  <meta name="description" content="Grupos de estudos orientados pela Professora Ilce em turmas reduzidas para alunos do Colégio SER e Colégio Véritas em Sorocaba/SP. Reforço e acompanhamento em Matemática, Física, Ciências e Redação.">
+  
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Grupos de Estudo Orientados (SER & Véritas) — Espaço Lição de Casa">
+  <meta property="og:description" content="Grupos de estudo em turmas reduzidas de 4 a 6 alunos para 9º Véritas, 1º e 2º Ano SER em Sorocaba. Aulas de Setembro a Dezembro.">
+  <meta property="og:image" content="assets/hero_collage_2.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Estilos específicos da página de Grupos de Estudo */
+    .grupos-hero {
+      background-color: var(--teal-700);
+      color: var(--white);
+      padding-top: calc(80px + var(--space-16));
+      padding-bottom: var(--space-20);
+      position: relative;
+    }
+    .grupos-hero__badge {
+      display: inline-block;
+      background-color: var(--orange-500);
+      color: var(--white);
+      font: 700 12px/1 var(--font-label);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-4);
+    }
+    .grupos-hero__title {
+      font: 700 44px/1.1 var(--font-display);
+      margin-bottom: var(--space-4);
+    }
+    .grupos-hero__title em {
+      font-style: italic;
+      color: var(--orange-300);
+    }
+    .grupos-hero__subtitle {
+      font-size: 18px;
+      opacity: 0.95;
+      max-width: 720px;
+      line-height: 1.6;
+      margin-bottom: var(--space-8);
+    }
+
+    /* Grid dos Grupos de Estudo */
+    .grupos-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    .grupo-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--teal-100);
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(3, 53, 58, 0.06);
+      display: flex;
+      flex-direction: column;
+      transition: transform 300ms var(--ease-out-expo), box-shadow 300ms ease;
+      position: relative;
+    }
+    .grupo-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 36px rgba(3, 53, 58, 0.12);
+    }
+    .grupo-card--ser {
+      border-color: var(--orange-400);
+    }
+    .grupo-card--veritas {
+      border-color: var(--teal-500);
+    }
+
+    .grupo-card__header {
+      padding: var(--space-6);
+      color: var(--white);
+      text-align: center;
+    }
+    .grupo-card__header--ser {
+      background-color: var(--orange-500);
+    }
+    .grupo-card__header--veritas {
+      background-color: var(--teal-600);
+    }
+    .grupo-card__header h3 {
+      font: 700 22px/1.2 var(--font-body);
+      margin-bottom: 4px;
+    }
+    .grupo-card__header span {
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      opacity: 0.95;
+      font-weight: 600;
+    }
+
+    .grupo-card__body {
+      padding: var(--space-6);
+      display: flex;
+      flex-direction: column;
+      flex-grow: 1;
+    }
+
+    .grupo-card__period {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--teal-50);
+      color: var(--teal-800);
+      font-size: 13px;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      margin-bottom: var(--space-4);
+      align-self: flex-start;
+      border: 1px solid var(--teal-100);
+    }
+
+    .schedule-list {
+      list-style: none;
+      margin-bottom: var(--space-6);
+    }
+    .schedule-item {
+      background: #FAFDFD;
+      border: 1px solid var(--teal-100);
+      border-radius: var(--radius-sm);
+      padding: var(--space-3) var(--space-4);
+      margin-bottom: var(--space-3);
+    }
+    .schedule-item__materia {
+      font-weight: 700;
+      color: var(--ink-900);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .schedule-item__horario {
+      font-size: 13px;
+      color: var(--ink-500);
+      margin-top: 2px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .schedule-item__dia {
+      font-weight: 600;
+      color: var(--orange-600);
+    }
+
+    .grupo-card__price-box {
+      background: var(--teal-50);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+      text-align: center;
+      margin-top: auto;
+      margin-bottom: var(--space-6);
+      border: 1px solid var(--teal-100);
+    }
+    .grupo-card--ser .grupo-card__price-box {
+      background: #FFFDF9;
+      border-color: var(--orange-200);
+    }
+    .grupo-card__price-val {
+      font: 800 32px/1 var(--font-body);
+      color: var(--teal-800);
+      margin-bottom: 4px;
+    }
+    .grupo-card--ser .grupo-card__price-val {
+      color: var(--orange-600);
+    }
+    .grupo-card__price-sub {
+      font-size: 14px;
+      color: var(--ink-500);
+      font-weight: 500;
+    }
+    .grupo-card__discount {
+      display: inline-block;
+      margin-top: 6px;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--teal-700);
+      background: var(--teal-100);
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+    }
+
+    .grupo-card__btn {
+      width: 100%;
+      text-align: center;
+      justify-content: center;
+    }
+
+    .highlights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-6);
+      margin-top: var(--space-8);
+    }
+
+    @media (max-width: 1024px) {
+      .grupos-grid {
+        grid-template-columns: 1fr;
+        max-width: 540px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .highlights-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .grupos-hero__title {
+        font-size: 32px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==========================================================================
+     HEADER / NAVEGAÇÃO
+     ========================================================================== -->
+  <header class="header is-scrolled" id="navbar">
+    <div class="header__container">
+      <a href="index.html" class="header__logo">
+        <img src="assets/logo.svg" alt="Logo Espaço Lição de Casa" class="header__logo-img">
+        <span class="header__logo-text">Lição de Casa</span>
+      </a>
+
+      <nav class="header__nav" id="nav-menu">
+        <ul class="header__nav-list">
+          <li><a href="index.html#inicio" class="nav-link">← Página Inicial</a></li>
+          <li><a href="#diferenciais" class="nav-link">Como Funciona</a></li>
+          <li><a href="#turmas" class="nav-link">Grupos Abertos</a></li>
+          <li><a href="#unidades" class="nav-link">Localização</a></li>
+        </ul>
+        <div class="header__cta-mobile">
+          <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20Grupos%20de%20Estudo%20(SER%20e%20Véritas)." target="_blank" rel="noopener noreferrer" class="btn-primary">
+            Falar no WhatsApp
+          </a>
+        </div>
+      </nav>
+
+      <div class="header__actions">
+        <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20Grupos%20de%20Estudo%20(SER%20e%20Véritas)." target="_blank" rel="noopener noreferrer" class="btn-primary header__cta">
+          Falar no WhatsApp
+        </a>
+        <button class="header__toggle" id="menu-toggle" aria-label="Abrir menu de navegação" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO GRUPOS DE ESTUDO -->
+    <section class="grupos-hero" id="inicio">
+      <div class="container">
+        <span class="grupos-hero__badge">TURMAS REDUZIDAS & ACOMPANHAMENTO DIRECIONADO</span>
+        <h1 class="grupos-hero__title">Grupos de Estudo Orientados — <em>SER</em> & <em>Véritas</em></h1>
+        <p class="grupos-hero__subtitle">
+          Grupos exclusivos para alunos do <strong>9º Ano Véritas</strong> e do <strong>1º e 2º Anos SER</strong> em Sorocaba/SP. Mesas de estudo com mediação de professores, conteúdos no ritmo da sua escola, simulados em grupo e rotinas de revisão de <strong>Setembro a Dezembro</strong>.
+        </p>
+        <div style="display: flex; gap: var(--space-4); flex-wrap: wrap;">
+          <a href="#turmas" class="btn-primary">Ver Grupos e Horários</a>
+          <a href="https://wa.me/5515996279639?text=Olá!%20Gostaria%20de%20reservar%20uma%20vaga%20nos%20Grupos%20de%20Estudo." target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            Reservar Vaga no WhatsApp
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIFERENCIAIS DOS GRUPOS -->
+    <section class="sobre reveal" id="diferenciais">
+      <div class="container">
+        <div class="servicos__header" style="margin-bottom: var(--space-8);">
+          <span class="section-eyebrow">Aprendizado Dinâmico</span>
+          <h2 class="section-title">Por que participar dos Nossos Grupos de Estudo?</h2>
+          <p style="color: var(--ink-500); font-size: 16px;">Estrutura pensada para alunos das escolas de Sorocaba com acompanhamento contínuo da Professora Ilce.</p>
+        </div>
+
+        <div class="highlights-grid">
+          <article class="card card--val-prop">
+            <div class="card__icon-wrapper">
+              <span style="font-size: 24px;">👥</span>
+            </div>
+            <h3 class="card__title">Turmas Reduzidas (4 a 6 alunos)</h3>
+            <p class="card__desc">Grupos pequenos que permitem atenção dedicada do professor a cada estudante, tirando dúvidas pontuais e acompanhando a evolução diária.</p>
+          </article>
+
+          <article class="card card--val-prop">
+            <div class="card__icon-wrapper">
+              <span style="font-size: 24px;">🏫</span>
+            </div>
+            <h3 class="card__title">Conteúdo Alinhado à Escola</h3>
+            <p class="card__desc">Material e cronograma customizados exatamente para as exigências, provas e disciplinas dos colégios <strong>SER</strong> e <strong>Véritas</strong> em Sorocaba.</p>
+          </article>
+
+          <article class="card card--val-prop">
+            <div class="card__icon-wrapper">
+              <span style="font-size: 24px;">📡</span>
+            </div>
+            <h3 class="card__title">Presencial com Transmissão Online</h3>
+            <p class="card__desc">Aulas presenciais confortáveis na nossa Sede na Vila Jardini, com opção de acompanhamento ao vivo para total comodidade do aluno.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- GRUPOS DE ESTUDO ABERTOS -->
+    <section class="servicos reveal" id="turmas" style="background-color: var(--teal-50); padding-top: var(--space-16); padding-bottom: var(--space-24);">
+      <div class="container">
+        <div class="servicos__header">
+          <span class="section-eyebrow">Aulas de Setembro a Dezembro</span>
+          <h2 class="section-title">Confira as Turmas Disponíveis</h2>
+          <p style="color: var(--ink-500); font-size: 16px;">Vagas limitadas por grupo para garantir máxima eficiência no aprendizado.</p>
+        </div>
+
+        <div class="grupos-grid">
+          
+          <!-- Card 1: 9º Ano Véritas -->
+          <article class="grupo-card grupo-card--veritas">
+            <div class="grupo-card__header grupo-card__header--veritas">
+              <span>Escola Véritas</span>
+              <h3>9º VÉRITAS</h3>
+              <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Grupo de Estudos Lição de Casa</p>
+            </div>
+            <div class="grupo-card__body">
+              <div class="grupo-card__period">
+                <span>🗓️ Setembro a Dezembro</span>
+              </div>
+
+              <p style="font-size: 14px; color: var(--ink-700); margin-bottom: var(--space-4); line-height: 1.5;">
+                Turmas de <strong>4 a 6 alunos</strong> focadas em reforço profundo e fixação de conteúdo.
+              </p>
+
+              <ul class="schedule-list">
+                <li class="schedule-item">
+                  <div class="schedule-item__materia">
+                    <span>📐</span> Matemática
+                  </div>
+                  <div class="schedule-item__horario">
+                    <span>Acompanhamento Semanal</span>
+                    <span class="schedule-item__dia">1,5h semanal</span>
+                  </div>
+                </li>
+                <li class="schedule-item">
+                  <div class="schedule-item__materia">
+                    <span>🧪</span> Ciências
+                  </div>
+                  <div class="schedule-item__horario">
+                    <span>Acompanhamento Semanal</span>
+                    <span class="schedule-item__dia">1,5h semanal</span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="grupo-card__price-box">
+                <div class="grupo-card__price-val">R$ 1.560,00</div>
+                <div class="grupo-card__price-sub">em até <strong>5x de R$ 312,00</strong></div>
+                <div style="font-size: 12px; color: var(--ink-500); margin-top: 2px;">(Boleto ou Cartão de Crédito)</div>
+                <span class="grupo-card__discount">🏷️ 10% DE DESCONTO À VISTA</span>
+              </div>
+
+              <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20reservar%20uma%20vaga%20no%20Grupo%20de%20Estudos%20do%209º%20Véritas." target="_blank" rel="noopener noreferrer" class="btn-primary grupo-card__btn" style="background-color: var(--teal-600);">
+                Reservar Vaga 9º Véritas
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 2: 1º Ano SER -->
+          <article class="grupo-card grupo-card--ser">
+            <div class="grupo-card__header grupo-card__header--ser">
+              <span>Exclusivo Colégio SER</span>
+              <h3>1º ANO EM SER</h3>
+              <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Grupo da Professora Ilce</p>
+            </div>
+            <div class="grupo-card__body">
+              <div class="grupo-card__period" style="background: #FFFDF9; border-color: var(--orange-200); color: var(--orange-700);">
+                <span>📍 Presencial (c/ Transmissão Online)</span>
+              </div>
+
+              <p style="font-size: 14px; color: var(--ink-700); margin-bottom: var(--space-4); line-height: 1.5;">
+                Aulas de <strong>Setembro a Dezembro</strong> com grade horária estruturada por disciplina.
+              </p>
+
+              <ul class="schedule-list">
+                <li class="schedule-item">
+                  <div class="schedule-item__materia">
+                    <span>✍️</span> Redação
+                  </div>
+                  <div class="schedule-item__horario">
+                    <span class="schedule-item__dia">Segunda-feira</span>
+                    <span>14h30 às 16h30</span>
+                  </div>
+                </li>
+                <li class="schedule-item">
+                  <div class="schedule-item__materia">
+                    <span>⚛️</span> Física
+                  </div>
+                  <div class="schedule-item__horario">
+                    <span class="schedule-item__dia">Terça-feira</span>
+                    <span>14h30 às 16h30</span>
+                  </div>
+                </li>
+                <li class="schedule-item">
+                  <div class="schedule-item__materia">
+                    <span>📐</span> Matemática
+                  </div>
+                  <div class="schedule-item__horario">
+                    <span class="schedule-item__dia">Sexta-feira</span>
+                    <span>14h30 às 16h30</span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="grupo-card__price-box">
+                <div class="grupo-card__price-val">R$ 1.600,00</div>
+                <div class="grupo-card__price-sub">à vista ou até <strong>5x de R$ 350,00</strong></div>
+                <div style="font-size: 12px; color: var(--ink-500); margin-top: 2px;">(Boleto / Cartão)</div>
+              </div>
+
+              <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20reservar%20uma%20vaga%20no%20Grupo%20de%20Estudos%20do%201º%20Ano%20SER." target="_blank" rel="noopener noreferrer" class="btn-primary grupo-card__btn" style="background-color: var(--orange-500);">
+                Reservar Vaga 1º SER
+              </a>
+            </div>
+          </article>
+
+          <!-- Card 3: 2º Ano SER -->
+          <article class="grupo-card grupo-card--ser">
+            <div class="grupo-card__header grupo-card__header--ser">
+              <span>Exclusivo Colégio SER</span>
+              <h3>2º ANO EM SER</h3>
+              <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Grupo da Professora Ilce</p>
+            </div>
+            <div class="grupo-card__body">
+              <div class="grupo-card__period" style="background: #FFFDF9; border-color: var(--orange-200); color: var(--orange-700);">
+                <span>📍 Presencial (c/ Transmissão Online)</span>
+              </div>
+
+              <p style="font-size: 14px; color: var(--ink-700); margin-bottom: var(--space-4); line-height: 1.5;">
+                Aulas de <strong>Setembro a Dezembro</strong> com grade horária estruturada por disciplina.
+              </p>
+
+              <ul class="schedule-list">
+                <li class="schedule-item">
+                  <div class="schedule-item__materia">
+                    <span>⚛️</span> Física
+                  </div>
+                  <div class="schedule-item__horario">
+                    <span class="schedule-item__dia">Segunda-feira</span>
+                    <span>16h30 às 18h30</span>
+                  </div>
+                </li>
+                <li class="schedule-item">
+                  <div class="schedule-item__materia">
+                    <span>📐</span> Matemática
+                  </div>
+                  <div class="schedule-item__horario">
+                    <span class="schedule-item__dia">Quarta-feira</span>
+                    <span>16h30 às 18h30</span>
+                  </div>
+                </li>
+                <li class="schedule-item">
+                  <div class="schedule-item__materia">
+                    <span>✍️</span> Redação
+                  </div>
+                  <div class="schedule-item__horario">
+                    <span class="schedule-item__dia">Sexta-feira</span>
+                    <span>16h30 às 18h30</span>
+                  </div>
+                </li>
+              </ul>
+
+              <div class="grupo-card__price-box">
+                <div class="grupo-card__price-val">R$ 1.600,00</div>
+                <div class="grupo-card__price-sub">à vista ou até <strong>5x de R$ 350,00</strong></div>
+                <div style="font-size: 12px; color: var(--ink-500); margin-top: 2px;">(Boleto / Cartão)</div>
+              </div>
+
+              <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20reservar%20uma%20vaga%20no%20Grupo%20de%20Estudos%20do%202º%20Ano%20SER." target="_blank" rel="noopener noreferrer" class="btn-primary grupo-card__btn" style="background-color: var(--orange-500);">
+                Reservar Vaga 2º SER
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO & SEDE -->
+    <section class="unidades reveal" id="unidades">
+      <div class="container">
+        <div class="unidades__header">
+          <span class="section-eyebrow">Nossa Localização</span>
+          <h2 class="section-title">Onde Acontecem as Aulas Presenciais</h2>
+          <p class="unidades__subtitle">Sede própria em Sorocaba/SP totalmente equipada para recepção dos alunos.</p>
+        </div>
+
+        <div class="unidades__grid" style="display: flex; justify-content: center;">
+          <article class="card card--unidade card--unidade-com-foto" style="max-width: 640px; width: 100%;">
+            <img src="assets/fachada.jpg" alt="Fachada do Espaço Lição de Casa" class="card__unidade-img">
+            <div class="card__unidade-body">
+              <div class="card__unidade-header">
+                <span class="card__unidade-flag">📍</span>
+                <span class="badge">Sorocaba - SP</span>
+              </div>
+              <h3 class="card__unidade-title">Espaço Lição de Casa — Vila Jardini</h3>
+              <p class="card__unidade-desc">Ambiente preparado, com salas climatizadas e suporte pedagógico constante da Professora Ilce e equipe.</p>
+              
+              <div class="card__unidade-detalhes">
+                <p>
+                  <span class="detail-icon">📍</span>
+                  <span class="detail-text">Rua Icaraí, 317 - Vila Jardini, Sorocaba - SP</span>
+                </p>
+                <p>
+                  <span class="detail-icon">📞</span>
+                  <span class="detail-text">Reserva de vagas: (15) 99627-9639</span>
+                </p>
+                <p>
+                  <span class="detail-icon">📸</span>
+                  <span class="detail-text">Instagram: @licaodecasa.oficial</span>
+                </p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANNER CTA FINAL -->
+    <section class="contato reveal" id="contato">
+      <div class="container">
+        <div class="cta-box">
+          <h2 class="cta-box__title">Garanta a Vaga do seu Filho no Grupo de Estudos!</h2>
+          <p class="cta-box__desc">Devido ao limite reduzido de 4 a 6 alunos por turma, as vagas são preenchidas rapidamente. Fale diretamente com nossa equipe no WhatsApp.</p>
+          <div class="cta-box__ctas">
+            <a href="https://wa.me/5515996279639?text=Olá!%20Quero%20garantir%20uma%20vaga%20nos%20Grupos%20de%20Estudo%20(SER%20/%20Véritas)." target="_blank" rel="noopener noreferrer" class="btn-checkout">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;">
+                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+              </svg>
+              Garantir Vaga no WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ==========================================================================
+     FOOTER
+     ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div>
+          <div class="footer__logo">
+            <img src="assets/logo.svg" alt="Logo Espaço Lição de Casa">
+            <span>Espaço Lição de Casa</span>
+          </div>
+          <p class="footer__desc">Rua Icaraí 317, Vila Jardini, Sorocaba - SP | WhatsApp: (15) 99627-9639<br>Aqui, aprender faz sentido.</p>
+          <div class="footer__socials">
+            <a href="https://wa.me/5515996279639" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+            </a>
+            <a href="https://instagram.com/licaodecasa.oficial" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4>Navegação</h4>
+          <ul class="footer__links">
+            <li><a href="index.html#inicio">Página Inicial</a></li>
+            <li><a href="index.html#sobre">Sobre a Escola</a></li>
+            <li><a href="index.html#servicos">Cursos & Programas</a></li>
+            <li><a href="#turmas">Grupos de Estudo SER & Véritas</a></li>
+            <li><a href="index.html#contato">Fale Conosco</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; 2026 Espaço Lição de Casa. Todos os direitos reservados.</p>
+        <p>Desenvolvido com excelência pedagógica e inovação.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
